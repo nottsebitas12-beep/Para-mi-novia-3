@@ -138,6 +138,26 @@
       white-space: nowrap;
     }
 
+    .heart-subtext {
+      position: absolute;
+      top: calc(50% + 56px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(78%, 480px);
+      text-align: center;
+      color: #ffd7e8;
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.5;
+      text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000,
+        0 0 8px rgba(255, 0, 102, 0.7);
+      z-index: 10;
+    }
+
     /* ANIMACIONES OPTIMIZADAS Y SUTILES */
     @keyframes heartbeat {
       0%, 100% {
@@ -251,6 +271,97 @@
       accent-color: #ff2a6d;
       cursor: pointer;
     }
+
+    @media (max-width: 768px) {
+      .title-header {
+        margin-top: 20px;
+        padding: 0 16px;
+      }
+
+      .title-header h1 {
+        font-size: 1.55rem;
+        letter-spacing: 1.4px;
+        line-height: 1.3;
+      }
+
+      .title-header p {
+        font-size: 0.92rem;
+      }
+
+      .galaxy-container {
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        padding: 12px 0 120px;
+      }
+
+      .neon-heart-wrapper {
+        width: min(84vw, 360px);
+        height: min(84vw, 360px);
+        margin: 10px auto 0;
+      }
+
+      .heart-text-center {
+        font-size: 0.72rem;
+        letter-spacing: 1px;
+        width: 90%;
+        padding: 6px 10px;
+      }
+
+      .heart-subtext {
+        top: calc(50% + 42px);
+        width: 88%;
+        font-size: 0.66rem;
+        line-height: 1.35;
+      }
+
+      .orbit-item {
+        padding: 8px;
+        border-radius: 18px;
+      }
+
+      .orbit-item img {
+        width: 110px;
+        height: 110px;
+      }
+
+      .orbit-item span {
+        font-size: 0.62rem;
+        padding: 4px 8px;
+      }
+
+      .item-1 { top: 6%; left: 2%; }
+      .item-2 { top: 6%; right: 2%; }
+      .item-3 { bottom: 6%; left: 2%; }
+      .item-4 { bottom: 6%; right: 2%; }
+
+      .background-sticker {
+        width: 56px;
+        height: 56px;
+        opacity: 0.52;
+      }
+
+      .music-player {
+        top: auto;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 16px);
+        max-width: 420px;
+        justify-content: center;
+        flex-wrap: wrap;
+        border-radius: 18px;
+      }
+
+      .music-btn {
+        padding: 10px 16px;
+        font-size: 0.85rem;
+      }
+
+      .volume-slider {
+        width: 100px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -274,6 +385,7 @@
     
     <div class="neon-heart-wrapper">
       <span class="heart-text-center">TE QUIERO MUCHO VALE</span>
+      <p class="heart-subtext">Este detalle te lo hago con mucho cariño mi niña hermosa, quiero que sepas que eres muy importante para mí.</p>
       
       <svg viewBox="0 0 24 24">
         <path class="heart-path" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
