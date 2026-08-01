@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Feliz Día de la Novia! ❤️</title>
+  <style>
+    /* ESTILOS GENERALES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #030107;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ENCABEZADO */
+    .title-header {
+      margin-top: 35px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .title-header h1 {
+      font-size: 2.5rem;
+      color: #ff2a6d;
+      text-shadow: 0 0 15px rgba(255, 42, 109, 0.6);
+      letter-spacing: 3px;
+      margin-bottom: 6px;
+    }
+
+    .title-header p {
+      font-size: 1.1rem;
+      color: #ffb3c6;
+      opacity: 0.85;
+    }
+
+    /* CONTENEDOR PRINCIPAL */
+    .galaxy-container {
+      position: relative;
+      width: 100%;
+      height: 75vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* STICKERS DECORATIVOS EN EL BACKGROUND */
+    .background-stickers {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .background-sticker {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      opacity: 0.72;
+      filter: drop-shadow(0 0 8px rgba(255, 51, 102, 0.45));
+      animation: float 6s infinite ease-in-out alternate;
+    }
+
+    /* CORAZÓN SVG CON FORMA VACÍA Y FONDO VISIBLE */
+    .neon-heart-wrapper {
+      position: relative;
+      width: 520px;
+      height: 520px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      will-change: transform;
+      animation: heartbeat 3s infinite ease-in-out;
+      z-index: 5;
+    }
+
+    .neon-heart-wrapper::before {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 0, 106, 0.18), rgba(255, 0, 106, 0));
+      filter: blur(14px);
+      z-index: 0;
+    }
+
+    .neon-heart-wrapper svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 20px rgba(255, 0, 85, 0.7));
+      background: transparent;
+      z-index: 1;
+    }
+
+    .heart-path {
+      fill: transparent;
+      stroke: #ff2a6d;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      animation: neonGlow 3s infinite alternate ease-in-out;
+    }
+
+    /* TEXTO SUPERPUESTO CENTRADO EN EL CORAZÓN */
+    .heart-text-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.95rem;
+      font-weight: 600;
+      font-style: italic;
+      color: #ffffff;
+      background: rgba(3, 1, 7, 0.85);
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid #ff2a6d;
+      text-shadow: 0 0 8px #ff0055;
+      box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+      letter-spacing: 2px;
+      text-align: center;
+      user-select: none;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    /* ANIMACIONES OPTIMIZADAS Y SUTILES */
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale3d(1, 1, 1);
+      }
+      50% {
+        transform: scale3d(1.04, 1.04, 1);
+      }
+    }
+
+    @keyframes neonGlow {
+      from {
+        opacity: 0.85;
+        stroke: #ff2a6d;
+      }
+      to {
+        opacity: 1;
+        stroke: #ff6699;
+      }
+    }
+
+    /* FOTOS Y FRASES FLOTANTES EN ÓRBITA */
+    .orbit-item {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 2px solid rgba(255, 51, 102, 0.75);
+      border-radius: 24px;
+      box-shadow: 0 0 24px rgba(255, 51, 102, 0.35);
+      backdrop-filter: blur(6px);
+      will-change: transform;
+      animation: float 6s infinite ease-in-out alternate;
+      z-index: 10;
+    }
+
+    .orbit-item img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 3px solid #ff3366;
+      box-shadow: 0 0 24px rgba(255, 51, 102, 0.6);
+    }
+
+    .orbit-item span {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      background: rgba(10, 5, 15, 0.85);
+      padding: 4px 12px;
+      border-radius: 12px;
+      border: 1px solid #ff3366;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    /* POSICIONES DE LAS FOTOS */
+    .item-1 { top: 8%; left: 7%; animation-delay: 0s; }
+    .item-2 { top: 5%; right: 7%; animation-delay: 1.5s; }
+    .item-3 { bottom: 8%; left: 9%; animation-delay: 3s; }
+    .item-4 { bottom: 6%; right: 9%; animation-delay: 2s; }
+
+    @keyframes float {
+      0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+      50% { transform: translate3d(0, -12px, 0) rotate(1.5deg); }
+      100% { transform: translate3d(0, -6px, 0) rotate(-1.5deg); }
+    }
+
+    /* BOTÓN DE MÚSICA */
+    .music-player {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(10, 5, 15, 0.7);
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 51, 102, 0.6);
+      backdrop-filter: blur(8px);
+      margin: 6px;
+    }
+
+    .music-btn {
+      background: linear-gradient(45deg, #ff0055, #ff5588);
+      color: white;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+      transition: transform 0.2s ease;
+      font-family: inherit;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.05);
+    }
+
+    .music-btn.is-playing {
+      background: linear-gradient(45deg, #ff2a6d, #ff4f8c);
+    }
+
+    .volume-slider {
+      width: 120px;
+      accent-color: #ff2a6d;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="title-header">
+    <h1>¡FELIZ DÍA A MI FUTURA NOVIA! ❤️</h1>
+    <p>✨ ERES TODO LO QUE QUIERO ✨</p>
+  </div>
+
+  <div class="galaxy-container" id="galaxy">
+    <div class="background-stickers" aria-hidden="true">
+      <img class="background-sticker" src="stickers/584854e3b772315a9e4dd5d0.png" style="top: 4%; left: 2%; transform: rotate(-8deg);">
+      <img class="background-sticker" src="stickers/58485528b772315a9e4dd5d7.png" style="top: 3%; right: 2%; transform: rotate(12deg);">
+      <img class="background-sticker" src="stickers/5eaaaaedad89b60004c4c7b3.png" style="top: 28%; left: 1%; transform: rotate(5deg);">
+      <img class="background-sticker" src="stickers/5eaaab8cad89b60004c4c7b9.png" style="bottom: 4%; left: 1%; transform: rotate(-12deg);">
+      <img class="background-sticker" src="stickers/5eaaacb0ad89b60004c4c7c3.png" style="bottom: 3%; right: 2%; transform: rotate(9deg);">
+      <img class="background-sticker" src="stickers/5eaaad3cad89b60004c4c7c8.png" style="top: 30%; right: 1%; transform: rotate(-6deg);">
+      <img class="background-sticker" src="stickers/5eaaadbcad89b60004c4c7cd.png" style="top: 62%; left: 2%; transform: rotate(10deg);">
+      <img class="background-sticker" src="stickers/a3624549568b9b6cbfc54f0725670387.jpg" style="bottom: 26%; right: 3%; transform: rotate(-4deg);">
+    </div>
+    
+    <div class="neon-heart-wrapper">
+      <span class="heart-text-center">TE QUIERO MUCHO VALE</span>
+      
+      <svg viewBox="0 0 24 24">
+        <path class="heart-path" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+      </svg>
+      
+  
+    </div>
+
+    <div class="orbit-item item-1">
+      <img src="img/1.jpeg" alt="Foto 1">
+      <span>Siempre Juntos 💖</span>
+    </div>
+
+    <div class="orbit-item item-2">
+      <img src="img/3.jpeg" alt="Foto 3">
+      <span>Hermosa ✨</span>
+    </div>
+
+    <div class="orbit-item item-3">
+      <img src="img/2.jpeg" alt="Foto 2">
+      <span>Mi Mundo Entero 🌍</span>
+    </div>
+
+    <div class="orbit-item item-4">
+      <img src="img/4.jpeg" alt="Foto 4">
+      <span>Mi chinchosa ♾️</span>
+    </div>
+
+  </div>
+
+  <div class="music-player">
+    <audio id="bg-music" loop preload="auto">
+      <source src="music/ytmp3free.cc_alvaro-diaz-reina-pepiada-letralyrics-youtubemp3free.org.mp3" type="audio/mpeg">
+    </audio>
+    <input id="volume-control" class="volume-slider" type="range" min="0" max="1" step="0.05" value="0.1" aria-label="Volumen de música">
+    <button id="music-toggle" class="music-btn">🎵 Activar música</button>
+  </div>
+
+  <script>
+    const audio = document.getElementById('bg-music');
+    const volumeControl = document.getElementById('volume-control');
+    const musicToggle = document.getElementById('music-toggle');
+
+    audio.volume = Number(volumeControl.value);
+
+    volumeControl.addEventListener('input', () => {
+      audio.volume = Number(volumeControl.value);
+    });
+
+    async function toggleMusic() {
+      try {
+        if (audio.paused) {
+          await audio.play();
+          musicToggle.textContent = '🎵 Pausar música';
+          musicToggle.classList.add('is-playing');
+        } else {
+          audio.pause();
+          musicToggle.textContent = '🎵 Activar música';
+          musicToggle.classList.remove('is-playing');
+        }
+      } catch (error) {
+        console.log('La reproducción requiere interacción del usuario:', error);
+      }
+    }
+
+    musicToggle.addEventListener('click', toggleMusic);
+
+    window.addEventListener('load', async () => {
+      try {
+        await audio.play();
+        musicToggle.textContent = '🎵 Pausar música';
+        musicToggle.classList.add('is-playing');
+      } catch (error) {
+        console.log('Autoplay bloqueado hasta la primera interacción:', error);
+      }
+    });
+
+    // PARTÍCULAS OPTIMIZADAS
+    const galaxy = document.getElementById('galaxy');
+    const fragment = document.createDocumentFragment();
+
+    for (let i = 0; i < 80; i++) {
+      const particle = document.createElement('div');
+      particle.style.position = 'absolute';
+      particle.style.width = Math.random() * 3 + 1 + 'px';
+      particle.style.height = particle.style.width;
+      particle.style.background = i % 2 === 0 ? '#ffd7e7' : '#ffb3c6';
+      particle.style.borderRadius = '50%';
+      particle.style.top = Math.random() * 100 + '%';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.boxShadow = '0 0 8px #ff0055';
+      particle.style.opacity = Math.random() * 0.7 + 0.2;
+      particle.style.willChange = 'transform';
+      particle.style.animation = `float ${3 + Math.random() * 5}s infinite alternate ease-in-out`;
+      fragment.appendChild(particle);
+    }
+    
+    galaxy.appendChild(fragment);
+  </script>
+</body>
+</html>
